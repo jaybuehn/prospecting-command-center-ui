@@ -40,8 +40,8 @@ export default function UploadPage() {
     if (!file) return;
     Papa.parse(file, {
       header: true,
-      skipEmptyLines: true,
-      complete: (res) => {
+        skipEmptyLines: true,
+        complete: (res: any) => {
         const rows = (res.data as any[]).map(mapRow).filter(Boolean) as Prospect[];
         setParsed(rows);
         // dedupe by name + zip
